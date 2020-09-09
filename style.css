@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --youtube: hsl(348, 97%, 39%);
+
+  /* dark theme */
+
+  --dark-blue-bg: hsl(230, 17%, 14%);
+  --dark-blue-top-bg: hsl(232, 19%, 15%);
+  --blue-card-bg: hsl(228, 28%, 20%);
+  --blue-text: hsl(228, 34%, 66%);
+  --white-text: hsl(0, 0%, 100%);
+  --card-bg-hover-dark: hsl(230, 23%, 30%);
+
+  /* light theme */
+
+  --white-bg: hsl(0, 0%, 100%);
+  --blue-bg-top: hsl(225, 100%, 98%);
+  --blue-card-light: hsl(227, 47%, 96%);
+  --blue-text-light: hsl(228, 12%, 44%);
+  --very-dark-blue-text: hsl(230, 17%, 14%);
+
+  font-family: "Inter", sans-serif;
+
+  transition: background-color 0.3s;
+  /* transition: color 0.3s; */
+}
+
+.body {
+  background-color: var(--dark-blue-bg);
+  color: var(--white-text);
+}
+
+.body-light {
+  background-color: var(--white-bg);
+}
+
+header {
+  background-color: var(--dark-blue-top-bg);
+  height: 280px;
+}
+
+.header-light {
+  background-color: var(--blue-bg-top);
+  color: var(--very-dark-blue-text);
+}
+
+.container {
+  width: 80%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+
+.darkmode {
+  display: flex;
+  align-items: center;
+}
+
+.darkmode p {
+  color: var(--blue-text);
+  font-size: 12px;
+  margin-right: 10px;
+}
+/* toggle */
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--card-bg-hover-dark);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.social-stats {
+  margin-top: -110px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+}
+
+.social-stat-card {
+  background-color: var(--blue-card-bg);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.social-stat-card:hover {
+  background-color: var(--card-bg-hover-dark);
+}
+
+.social-stat-card-light {
+  background-color: var(--blue-card-light);
+}
+
+.social-stat-card-light .social-contact p,
+.social-stat-card-light .result p {
+  color: var(--blue-text-light);
+}
+
+.social-stat-card-light h2 {
+  color: var(--very-dark-blue-text);
+}
+
+.social-stat-card-light:hover {
+  background-color: hsl(229, 11%, 81%);
+}
+
+.social-stat-card:after {
+  content: "";
+  height: 5px;
+  width: 100%;
+  background-color: var(--facebook);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.social-stats .social-stat-card:nth-child(2):after {
+  background-color: var(--twitter);
+}
+.social-stats .social-stat-card:nth-child(3):after {
+  background: #fdc468;
+  background: -moz-linear-gradient(left, #fdc468 0%, #df4996 100%);
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, #fdc468),
+    color-stop(100%, #df4996)
+  );
+  background: -webkit-linear-gradient(left, #fdc468 0%, #df4996 100%);
+  background: -o-linear-gradient(left, #fdc468 0%, #df4996 100%);
+  background: -ms-linear-gradient(left, #fdc468 0%, #df4996 100%);
+  background: linear-gradient(to right, #fdc468 0%, #df4996 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdc468', endColorstr='#df4996', GradientType=1 );
+}
+.social-stats .social-stat-card:nth-child(4):after {
+  background-color: var(--youtube);
+}
+
+.social-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.social-contact p {
+  margin-left: 5px;
+  font-size: 12px;
+  color: var(--blue-text);
+}
+
+.social-contact img {
+  width: 15px;
+}
+
+.result {
+  margin-bottom: 25px;
+}
+
+.result h2 {
+  font-size: 52px;
+}
+
+.result p {
+  text-transform: uppercase;
+  color: var(--blue-text);
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.up-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.up-down p {
+  margin-left: 5px;
+  font-size: 12px;
+  color: var(--lime-green);
+  font-weight: bold;
+}
+
+.social-stat-card:nth-child(4) .up-down p {
+  color: var(--bright-red);
+}
+
+.overview {
+  margin-top: 50px;
+}
+.overview-light h2 {
+  color: var(--blue-text-light);
+}
+.overview h2 {
+  margin-bottom: 20px;
+}
+
+.cards-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.cards-overview-light .card-over {
+  background-color: var(--blue-card-light);
+}
+
+.cards-overview-light .card-over:hover {
+  background-color: hsl(229, 11%, 81%);
+}
+
+.cards-overview-light .card-over p {
+  color: var(--blue-text-light);
+}
+
+.cards-overview-light .card-over h3 {
+  color: var(--very-dark-blue-text);
+}
+
+.card-over {
+  background-color: var(--blue-card-bg);
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-over:hover {
+  background-color: var(--card-bg-hover-dark);
+}
+
+.title-card,
+.inform-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-card p {
+  font-size: 14px;
+}
+
+.title-card img {
+  width: 14px;
+}
+
+.title-card {
+  margin-bottom: 20px;
+}
+
+.inform-card h3 {
+  font-size: 30px;
+}
+
+.inform-card .percentage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inform-card span {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--lime-green);
+  margin-left: 5px;
+}
+
+.inform-card .red-down {
+  color: var(--bright-red);
+}
